@@ -6,9 +6,9 @@ import { RpcProvider } from 'starknet';
 
 const chains: Chain[] = [
   {
-    id: BigInt('0x534e5f474f45524c49'),
-    name: 'Starknet Goerli',
-    network: 'goerli-alpha',
+    id: BigInt('0x534e5f5345504f4c4941'),
+    name: 'Starknet Sepolia',
+    network: 'sepolia',
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
@@ -16,8 +16,8 @@ const chains: Chain[] = [
       address: '0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7' as `0x${string}`
     },
     rpcUrls: {
-      default: { http: ['https://alpha-mainnet.starknet.io'] },
-      public: { http: ['https://alpha-mainnet.starknet.io'] }
+      default: { http: ['https://alpha-sepolia.starknet.io'] },
+      public: { http: ['https://alpha-sepolia.starknet.io'] }
     }
   }
 ];
@@ -36,8 +36,8 @@ export function RootLayoutWrapper({
     <StarknetConfig 
       chains={chains}
       connectors={connectors}
+      provider={() => new RpcProvider({ nodeUrl: 'https://alpha-sepolia.starknet.io' })}
       autoConnect
-      provider={() => new RpcProvider({ nodeUrl: 'https://alpha-mainnet.starknet.io' })}
     >
       {children}
     </StarknetConfig>

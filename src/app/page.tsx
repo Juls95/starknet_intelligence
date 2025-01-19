@@ -6,8 +6,12 @@ import { Gradient } from '@/components/gradient'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { BentoCard } from '@/components/bento-card'
+import { MarketCreation } from '@/components/market/MarketCreation'
+import { useAccount } from '@starknet-react/core'
 
 function Hero() {
+  const { address } = useAccount();
+  
   return (
     <div className="relative">
       <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-inset ring-black/5" />
@@ -21,6 +25,7 @@ function Hero() {
           </p>
           <div className="mt-12">
             <AnalysisDisplay />
+            {address && <MarketCreation />}
           </div>
         </div>
       </Container>
@@ -31,7 +36,7 @@ function Hero() {
 function BentoSection() {
   return (
     <Container>
-      <h2 className="text-2xl font-semibold text-gray-900">Features</h2>
+      <h2 className="text-2xl font-semibold text-gray-900">Starknet Features</h2>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-3">
         <BentoCard
           eyebrow="Analysis"
@@ -45,7 +50,30 @@ function BentoSection() {
             </div>
           }
         />
-        {/* Add more BentoCards as needed */}
+        <BentoCard
+          eyebrow="Smart Contracts"
+          title="Secure Interactions"
+          description="Interact with Starknet smart contracts securely and efficiently."
+          graphic={
+            <div className="flex h-full items-center justify-center bg-gradient-to-r from-emerald-400/20 to-emerald-400/5">
+              <svg className="h-24 w-24 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+          }
+        />
+        <BentoCard
+          eyebrow="Real-time"
+          title="Live Updates"
+          description="Get real-time updates from the Starknet blockchain as decisions are made."
+          graphic={
+            <div className="flex h-full items-center justify-center bg-gradient-to-r from-emerald-400/20 to-emerald-400/5">
+              <svg className="h-24 w-24 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+          }
+        />
       </div>
     </Container>
   )
