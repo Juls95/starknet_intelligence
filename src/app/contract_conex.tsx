@@ -1,5 +1,6 @@
 import { connect } from "get-starknet";
 import { Contract, Provider, constants } from "starknet";
+import { CONTRACT_ABI, CONTRACT_ADDRESS } from "@/config/contract";
 
 export async function connectWallet() {
   try {
@@ -23,14 +24,10 @@ export async function getProvider() {
 
 export async function createMarket(wallet: any, marketData: any) {
   try {
-    // This is a placeholder for the actual contract interaction
-    // You would need to deploy your own contract and replace this
-    const contractAddress = "YOUR_CONTRACT_ADDRESS";
     const provider = await getProvider();
-    
     const contract = new Contract(
-      marketABI,
-      contractAddress,
+      CONTRACT_ABI,
+      CONTRACT_ADDRESS,
       provider
     );
 
