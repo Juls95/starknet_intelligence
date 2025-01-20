@@ -1,52 +1,128 @@
-# Radiant
+# Starknet AI Decision Markets
 
-Radiant is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org), with a blog powered by [Sanity](https://www.sanity.io).
+A decentralized platform for AI decision-making and analysis built on Starknet. This project aims to address biases in solo AI decision-making through collaborative market mechanisms.
 
-## Getting started
+## Features
 
-To get started with this template, first install the npm dependencies:
+- **Wallet Integration**: Connect with Argent X or Braavos wallets
+- **Real-time Analysis**: Get instant AI decision analysis
+- **Market Creation**: Create and participate in decision markets
+- **Secure Transactions**: Built on Starknet's Layer 2 solution
+- **Advanced Analytics**: Leverage machine learning for market insights
 
+## Prerequisites
+
+Before you begin, ensure you have installed:
+- Node.js (v16 or higher)
+- npm or yarn
+- A Starknet wallet (Argent X or Braavos)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Juls95/starknet_intelligence.git
+cd starknet_intelligence
+```
+
+2. Install dependencies:
 ```bash
 npm install
+# or
+yarn install
 ```
 
-Next, create a new Sanity project to power the blog within this template:
-
-```bash
-npm create sanity@latest -- --env=.env.local --create-project "Radiant Blog" --dataset production
+3. Set up environment variables:
+Create a `.env.local` file in the root directory with:
+```env
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x0443c105a308b9a5f4b756b102ab566c4ae2077f3482ba90ed642c191e8df00f
+NEXT_PUBLIC_STARKNET_NETWORK=sepolia
+NEXT_PUBLIC_RPC_URL=https://alpha-sepolia.starknet.io
 ```
 
-This will prompt you to create a new Sanity account if you don't have one already. When asked "Would you like to add configuration files for a Sanity project in this Next.js folder?", choose "n".
-
-Next, optionally import the demo seed data for the blog:
-
-```bash
-npx sanity@latest dataset import seed.tar.gz
-```
-
-Next, run the development server:
-
+4. Start the development server:
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+## Usage
 
-To manage your blog content, visit the embedded Sanity Studio at [http://localhost:3000/studio](http://localhost:3000/studio).
+1. **Connect Wallet**
+   - Click "Connect Wallet" in the header
+   - Choose between Argent X or Braavos
+   - Approve the connection request
 
-## Customizing
+2. **Create Markets**
+   - Once connected, use the "Create Market" button
+   - Set market parameters (description, end time)
+   - Confirm the transaction in your wallet
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+3. **Analyze Decisions**
+   - Use the Analysis Display component
+   - View real-time AI decision data
+   - Track market performance
+
+## Smart Contracts
+
+The smart contracts for this project are available at:
+[https://github.com/Juls95/starknet_contract.git](https://github.com/Juls95/starknet_contract.git)
+
+## Technical Stack
+
+- **Frontend**: Next.js, React, TailwindCSS
+- **Blockchain**: Starknet, Cairo
+- **Wallet Integration**: @starknet-react/core
+- **UI Components**: Lucide React, Headless UI
+- **Styling**: TailwindCSS, CSS Modules
+
+## Network Information
+
+This project runs on Starknet's Sepolia testnet. Make sure your wallet is configured for Sepolia:
+- Network: Sepolia Testnet
+- RPC URL: https://alpha-sepolia.starknet.io
+- Chain ID: 0x534e5f5345504f4c4941
+
+## Development
+
+To contribute to the project:
+
+1. Fork the repository
+2. Create a feature branch
+```bash
+git checkout -b feature/your-feature-name
+```
+3. Commit your changes
+```bash
+git commit -m 'Add some feature'
+```
+4. Push to the branch
+```bash
+git push origin feature/your-feature-name
+```
+5. Create a Pull Request
+
+## Testing
+
+Run the test suite:
+```bash
+npm run test
+# or
+yarn test
+```
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Learn more
+## Contact
 
-To learn more about the technologies used in this site template, see the following resources:
+- GitHub: [@Juls95](https://github.com/Juls95)
+- Project Link: [https://github.com/Juls95/starknet_intelligence](https://github.com/Juls95/starknet_intelligence)
 
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [Sanity](https://www.sanity.io) - the Sanity website
+## Acknowledgments
+
+- Starknet Foundation
+- OpenZeppelin
+- StarkWare

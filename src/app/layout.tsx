@@ -4,8 +4,8 @@ import { RootLayoutWrapper } from './root-layout'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Radiant',
-    default: 'Radiant - Close every deal',
+    template: '%s - starknet',
+    default: 'Starknet - Analyze Data',
   },
 }
 

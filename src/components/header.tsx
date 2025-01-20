@@ -10,11 +10,13 @@ export function Header() {
   const { disconnect } = useDisconnect()
   const { address } = useAccount()
   const [isConnecting, setIsConnecting] = useState(false)
+  const [showWalletList, setShowWalletList] = useState(false)
 
   const handleConnect = async (connector: any) => {
     try {
       setIsConnecting(true)
       await connect({ connector })
+      setShowWalletList(false)
     } catch (error) {
       console.error('Connection error:', error)
     } finally {
@@ -44,17 +46,31 @@ export function Header() {
               </Button>
             </div>
           ) : (
-            <div className="flex gap-4">
-              {connectors.map((connector) => (
-                <Button
-                  key={connector.id}
-                  onClick={() => handleConnect(connector)}
-                  disabled={isConnecting}
-                  variant="secondary"
-                >
-                  {isConnecting ? 'Connecting...' : `Connect ${connector.id}`}
-                </Button>
-              ))}
+            <div className="relative">
+              <Button 
+                onClick={() => setShowWalletList(!showWalletList)} 
+                variant="secondary"
+              >
+                Connect Wallet
+              </Button>
+              
+              {showWalletList && (
+                <div className="absolute mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                  <div className="py-1" role="menu">
+                    {connectors.map((connector) => (
+                      <button
+                        key={connector.id}
+                        onClick={() => handleConnect(connector)}
+                        disabled={isConnecting}
+                        className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                        role="menuitem"
+                      >
+                        {isConnecting ? 'Connecting...' : `Connect ${connector.id}`}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

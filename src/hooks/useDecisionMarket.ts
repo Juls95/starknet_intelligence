@@ -1,11 +1,18 @@
 import { useContract } from '@starknet-react/core';
-import { CONTRACT_ADDRESS, CONTRACT_ABI } from '@/config/contract';
+import { CONTRACT_ADDRESS, CONTRACT_ABI, CONTRACT_NETWORK } from '@/config/contract';
 import { useMemo } from 'react';
+import { Provider, constants } from 'starknet';
 
 export function useDecisionMarket() {
   const { contract } = useContract({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
+    provider: new Provider({ 
+      sequencer: { 
+        network: CONTRACT_NETWORK,
+        baseUrl: 'https://alpha-sepolia.starknet.io'
+      } 
+    })
   });
 
   return useMemo(() => ({

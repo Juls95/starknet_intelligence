@@ -4,6 +4,10 @@ import type { Chain } from '@starknet-react/chains';
 import { StarknetConfig, InjectedConnector } from '@starknet-react/core';
 import { RpcProvider } from 'starknet';
 
+const defaultProvider = new RpcProvider({ 
+  nodeUrl: 'https://alpha-sepolia.starknet.io'
+});
+
 const chains: Chain[] = [
   {
     id: BigInt('0x534e5f5345504f4c4941'),
@@ -24,7 +28,7 @@ const chains: Chain[] = [
 
 const connectors = [
   new InjectedConnector({ options: { id: 'braavos' }}),
-  new InjectedConnector({ options: { id: 'argentX' }}),
+  new InjectedConnector({ options: { id: 'argentX' }})
 ];
 
 export function RootLayoutWrapper({
@@ -36,7 +40,7 @@ export function RootLayoutWrapper({
     <StarknetConfig 
       chains={chains}
       connectors={connectors}
-      provider={() => new RpcProvider({ nodeUrl: 'https://alpha-sepolia.starknet.io' })}
+      provider={() => defaultProvider}
       autoConnect
     >
       {children}
